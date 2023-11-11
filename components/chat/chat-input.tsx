@@ -34,13 +34,8 @@ export const ChatInput = ({ section, user }: ChatInputProps) => {
   });
 
   const isSubmitting = form.formState.isSubmitting;
-  console.log(
-    "🚀 ~ file: chat-input.tsx:36 ~ ChatInput ~ isSubmitting:",
-    isSubmitting
-  );
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log("🚀 ~ file: chat-input.tsx:36 ~ onSubmit ~ values:", values);
     try {
       form.reset();
       await axios.post("/api/messages", {
