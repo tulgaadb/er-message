@@ -10,7 +10,7 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
 
     const cursor = searchParams.get("cursor");
-    const channelId = searchParams.get("channelId");
+    const section = searchParams.get("section");
 
     let messages: Message[] = [];
 
@@ -21,9 +21,9 @@ export async function GET(req: Request) {
         cursor: {
           id: cursor,
         },
-        // where: {
-        //   channelId,
-        // },
+        where: {
+          section: section || "",
+        },
         orderBy: {
           createdAt: "desc",
         },
@@ -31,9 +31,9 @@ export async function GET(req: Request) {
     } else {
       messages = await db.message.findMany({
         take: MESSAGES_BATCH,
-        // where: {
-        //   channelId,
-        // },
+        where: {
+          section: section || "",
+        },
 
         orderBy: {
           createdAt: "desc",

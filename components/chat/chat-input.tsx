@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { Send } from "lucide-react";
 
 interface ChatInputProps {
   section: string;
@@ -66,9 +67,12 @@ export const ChatInput = ({ section, user }: ChatInputProps) => {
                 <div className="relative p-4 pb-6">
                   <Input
                     disabled={isSubmitting}
-                    className="px-14 py-6 bg-zinc-200/90 dark:bg-zinc-700/75 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-zinc-600 dark:text-zinc-200"
+                    className="px-4 py-6 bg-zinc-200/90 dark:bg-zinc-700/75 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-zinc-600 dark:text-zinc-200"
                     {...field}
                   />
+                  <button className="absolute top-7 right-8" type="submit">
+                    <Send />
+                  </button>
                 </div>
               </FormControl>
             </FormItem>

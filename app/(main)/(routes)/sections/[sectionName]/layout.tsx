@@ -12,7 +12,7 @@ const ServerIdLayout = async ({
 }) => {
   return (
     <div className="h-full">
-      <main className="h-full md:pl-60">{children}</main>
+      <main className="h-full">{children}</main>
     </div>
   );
 };
